@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Gui</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.ibb.co/PGTsWvH/pixel-GIF-Find-Share-on-GIPHY.gif');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+        .tabs {
+            background-color: rgba(255, 255, 255, 0.2);
+            position: relative;
+            top: 50px;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 10px;
+            width: 60%;
+            margin: 0 auto;
+        }
+        .tabs a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        h1 {
+            margin-top: 40px;
+            font-size: 3em;
+        }
+        .description {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .button, .text-box {
+            background-color: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 18px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .hidden-text-box {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px;
+            font-size: 1.2em;
+            width: 80%;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+        .clipboard-msg {
+            color: lightgreen;
+        }
+        .premium-text {
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+        section {
+            display: none;
+            margin-top: 50px;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tabs">
+        <a href="#shadowgui" onclick="showTab('shadowgui')">Shadow Gui</a>
+        <a href="#premium" onclick="showTab('premium')">Premium</a>
+        <a href="https://discord.gg/xYcyb6AcSP" target="_blank">Discord</a>
+    </div>
+
+    <section id="shadowgui" class="active">
+        <h1>Shadow Gui!</h1>
+        <p class="description">The Best Mobile and PC DaHood Script for you to use</p>
+
+        <button class="button" onclick="showScript()">Get Script</button>
+
+        <div id="scriptBox" class="hidden-text-box">
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/faisal1432152/shadow-gui/main/shadowgui"))()
+        </div>
+
+        <p>Shadow GUI Support 🌟</p>
+        <p>99% Compatible with Executors:</p>
+        <ul>
+            <li>✨ Fluxus</li>
+            <li>✨ Delta</li>
+            <li>✨ Codex</li>
+            <li>✨ Arceus X</li>
+            <li>✨ Vegax</li>
+            <li>✨ Trigon</li>
+            <li>✨ Solara</li>
+            <li>And more...</li>
+        </ul>
+
+        <button class="button" onclick="copyScript()">Copy Script to Clipboard</button>
+        <p id="clipboardMsg" class="clipboard-msg"></p>
+    </section>
+
+    <section id="premium">
+        <h1>Shadow Gui Premium</h1>
+        <p class="description">Mobile / PC</p>
+
+        <p class="premium-text">"Shadow gui premium we are the cheapest premium script ever and we always do giveaways for prem, Nitro etc. Join discord to buy Premium. Price: 200"</p>
+
+        <a href="https://discord.gg/xYcyb6AcSP" target="_blank">
+            <button class="button">Join Discord to Buy Premium</button>
+        </a>
+    </section>
+
+    <script>
+        function showTab(tabName) {
+            var sections = document.querySelectorAll("section");
+            sections.forEach(function(section) {
+                section.classList.remove("active");
+            });
+            document.getElementById(tabName).classList.add("active");
+        }
+
+        function showScript() {
+            document.getElementById("scriptBox").style.display = "block";
+        }
+
+        function copyScript() {
+            const scriptText = document.getElementById("scriptBox").textContent;
+            navigator.clipboard.writeText(scriptText).then(() => {
+                document.getElementById("clipboardMsg").textContent = "Script copied to clipboard!";
+            }).catch(() => {
+                document.getElementById("clipboardMsg").textContent = "Failed to copy script.";
+            });
+        }
+    </script>
+
+</body>
+</html>
